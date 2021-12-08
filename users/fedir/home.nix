@@ -4,6 +4,32 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  xdg.enable = true;
+
+  home.packages = with pkgs; [
+	git
+	git-crypt
+	gnupg
+	pinentry_qt
+
+	fzf
+	htop
+	gopls
+	watch
+
+	rofi
+  ];
+
+  programs.git = {
+	enable = true;
+	userName = "Fedir Nepyivoda";
+	userEmail = "fednep@gmail.com";
+  };
+
+  programs.go = {
+	enable = true;
+  };
+
   programs.gpg = {
 	enable = true;
   };
@@ -11,6 +37,21 @@
   services.gpg-agent = {
 	enable = true;
 	pinentryFlavor = "qt";
+  };
+
+  programs.alacritty = {
+    enable = true;
+
+    settings = {
+      env.TERM = "xterm-256color";
+    };
+  };
+
+  # Make sursor not tiny on HiDPI screens
+  xsession.pointerCursor = {
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 128;
   };
 
   # Home Manager needs a bit of information about you and the
@@ -29,10 +70,6 @@
   home.stateVersion = "21.05";
 
 
-  home.packages = with pkgs; [
-	git
-	git-crypt
-	gnupg
-	pinentry_qt
-  ];
+
+
 }
