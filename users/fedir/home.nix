@@ -54,6 +54,9 @@
     size = 128;
   };
 
+  xresources.extraConfig = builtins.readFile ./Xresources;
+
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "fedir";
@@ -68,8 +71,5 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "21.05";
-
-
-
 
 }
