@@ -49,13 +49,13 @@ vm/init-do-install:
 	"
 
 vm/complete:
-	NIXUSER=root $(MAKE) vm/sync
-	NIXUSER=root $(MAKE) vm/apply-system
+	$(MAKE) vm/sync
+	$(MAKE) vm/apply-system
 	$(MAKE) vm/apply-user
 	$(MAKE) vm/reboot
 
 vm/reboot:
-	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
+	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
 		sudo reboot; \
 	"
 
