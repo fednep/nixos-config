@@ -121,6 +121,7 @@
 
   fonts.fonts = with pkgs; [
     go-font
+    powerline-fonts
     source-code-pro
     fira-code
   ];
