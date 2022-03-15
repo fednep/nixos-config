@@ -46,4 +46,4 @@ Xft.lcdfilter: lcddefault
 URxvt.colorBD: #B5BD68
 URxvt.colorIT: #B294BB
 URxvt.colorUL: #81A2BE
-URxvt*font: xft:mono:size=10
+URxvt*font: xft:Go Mono for Powerline:size=10
