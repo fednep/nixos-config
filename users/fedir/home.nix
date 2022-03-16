@@ -18,6 +18,7 @@
 	watch
 
 	rofi
+    silver-searcher
   ];
 
   programs.git = {
