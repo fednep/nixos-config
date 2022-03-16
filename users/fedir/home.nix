@@ -17,8 +17,11 @@
 	gopls
 	watch
 
+    alacritty
 	rofi
-    silver-searcher
+    silver-searcher # Ag tool for vim plugin
+
+    zsh
   ];
 
   programs.git = {

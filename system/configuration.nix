@@ -111,8 +111,6 @@
     rxvt_unicode
     xclip
     gtkmm3
-    zsh
-    alacritty
 
     vim
     wget
