@@ -22,6 +22,8 @@
     silver-searcher # Ag tool for vim plugin
 
     zsh
+    firefox
+    chromium
   ];
 
   programs.git = {
