@@ -48,6 +48,9 @@
 	enable = true;
 	dpi = 220;
 
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 30;
+
 	desktopManager = {
 		xterm.enable = false;
 		wallpaper.mode = "scale";
