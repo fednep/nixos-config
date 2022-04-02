@@ -1,4 +1,4 @@
-# I took mitchellh/nixos-config Makefile as an base, and modified it heavily:
+# I based this on  mitchellh/nixos-config Makefile and modified it heavily.
 # https://github.com/mitchellh/nixos-config
 #
 #
