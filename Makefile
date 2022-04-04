@@ -70,6 +70,9 @@ vm/sync:
 # Applies configuration
 vm/apply-system:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
+		sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+		sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
+		sudo nix-channel --update
 		sudo nixos-rebuild switch -I nixos-config=/nixos-config/system/configuration.nix \
 	"
 vm/apply-user:
