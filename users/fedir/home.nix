@@ -21,6 +21,7 @@
 	rofi
     silver-searcher # Ag tool for vim plugin
 
+    neovim
     zsh
     firefox
     chromium
