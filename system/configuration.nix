@@ -117,6 +117,7 @@
 
     vim
     wget
+    traceroute
     home-manager
   ];
 
