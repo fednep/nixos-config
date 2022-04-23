@@ -1,0 +1,4 @@
+! URXVT FONT SETTINGS
+!------------------------------------------------
+Xft.dpi: 160
+URxvt*font: xft:Go Mono for Powerline:size=10
