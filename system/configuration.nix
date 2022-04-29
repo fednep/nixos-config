@@ -46,7 +46,8 @@
   services.xserver =  {
 
 	enable = true;
-	dpi = 220;
+#	dpi = 220;
+	dpi = 110;
 
     autoRepeatDelay = 200;
     autoRepeatInterval = 30;

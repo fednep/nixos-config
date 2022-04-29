@@ -1,6 +1,7 @@
 ! URXVT FONT SETTINGS
 !------------------------------------------------
-Xft.dpi: 220
+Xft.dpi: 120
+! Xft.dpi: 220
 Xft.autohint: true
 Xft.antialias: true
 Xft.hinting: true
@@ -47,3 +48,4 @@ URxvt.colorBD: #B5BD68
 URxvt.colorIT: #B294BB
 URxvt.colorUL: #81A2BE
 URxvt*font: xft:Go Mono for Powerline:size=10
+URxvt.scrollBar: false
