@@ -32,7 +32,17 @@
 	enable = true;
 	userName = "Fedir Nepyivoda";
 	userEmail = "fednep@gmail.com";
-  };
+
+    extraConfig = {
+        color = {
+          ui = "auto";
+        };
+
+        pull = {
+          rebase = true;
+        };
+      };
+    };
 
   programs.go = {
 	enable = true;
