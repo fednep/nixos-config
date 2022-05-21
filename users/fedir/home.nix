@@ -12,6 +12,7 @@
 	gnupg
 	pinentry_qt
 
+    fd
 	fzf
 	htop
 	gopls
