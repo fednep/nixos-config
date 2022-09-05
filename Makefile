@@ -7,6 +7,7 @@ NIXADDR ?= unset
 NIXPORT ?= 22
 NIXUSER ?= fedir
 NIXBLOCKDEVICE ?= sda
+SWAPSIZE ?= 8GiB
 
 # SSH options that are used. These aren't meant to be overridden but are
 # reused a lot so we just store them up here.
@@ -21,8 +22,8 @@ MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 vm/init:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
 		parted /dev/$(NIXBLOCKDEVICE) -- mklabel gpt; \
-		parted /dev/$(NIXBLOCKDEVICE) -- mkpart primary 512MiB -8GiB; \
-		parted /dev/$(NIXBLOCKDEVICE) -- mkpart primary linux-swap -8GiB 100\%; \
+		parted /dev/$(NIXBLOCKDEVICE) -- mkpart primary 512MiB -$(SWAPSIZE); \
+		parted /dev/$(NIXBLOCKDEVICE) -- mkpart primary linux-swap -$(SWAPSIZE) 100\%; \
 		parted /dev/$(NIXBLOCKDEVICE) -- mkpart ESP fat32 1MiB 512MiB; \
 		parted /dev/$(NIXBLOCKDEVICE) -- set 3 esp on; \
 		mkfs.ext4 -L nixos /dev/$(NIXBLOCKDEVICE)1; \
@@ -70,10 +71,10 @@ vm/sync:
 # Applies configuration
 vm/apply-system:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
-		sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-		sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
-		sudo nix-channel --update
-		sudo nixos-rebuild switch -I nixos-config=/nixos-config/system/configuration.nix \
+		sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable; \
+		sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager; \
+		sudo nix-channel --update; \
+		sudo nixos-rebuild switch -I nixos-config=/nixos-config/system/configuration.nix; \
 	"
 vm/apply-user:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
