@@ -1,22 +1,9 @@
 # Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
-  # Use the GRUB 2 boot loader.
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "0";
 
@@ -30,7 +17,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.ens33.useDHCP = true;
+  # networking.interfaces.ens33.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -46,8 +33,7 @@
   services.xserver =  {
 
 	enable = true;
-#	dpi = 220;
-	dpi = 110;
+	dpi = lib.mkDefault 110;
 
     autoRepeatDelay = 200;
     autoRepeatInterval = 30;

@@ -52,10 +52,10 @@
 	enable = true;
   };
 
-  services.gpg-agent = {
-	enable = true;
-	pinentryFlavor = "qt";
-  };
+#    services.gpg-agent = {
+#  	enable = true;
+#  	pinentryFlavor = "qt";
+#    };
 
   programs.alacritty = {
     enable = true;
