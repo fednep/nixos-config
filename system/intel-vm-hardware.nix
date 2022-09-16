@@ -25,4 +25,5 @@
     [ { device = "/dev/disk/by-label/swap"; }
     ];
 
+  networking.interfaces.ens33.useDHCP = true;
 }

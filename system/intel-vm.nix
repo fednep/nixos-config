@@ -1,16 +1,13 @@
-{ ... } @attrs:
-let lib = import ./lib.nix attrs; in
-lib.makeConfig {
-  hw = ./dev-sm/hardware-configuration.nix;
-  role = ./roles/dev.nix;
+{ config, pkgs, ... }:
+{
+  imports = [
+    ./intel-vm-hardware.nix
+    ./templates/dev.nix
+  ];
 
-  # config just overrides / extends params set in the role
-  config = {
-    services.xserver.dpi = 210;
+  services.xserver.dpi = 110;
+  networking.hostName = "nixos"; # Define your hostname.
 
-    networking.hostName = "devhost";
-    networking.wireless.enable = true;
-  };
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 }
-
 
