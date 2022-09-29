@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   xdg.enable = true;
 
   home.packages = with pkgs; [
+    tree
 	git
 	git-crypt
 	gnupg
@@ -27,6 +25,43 @@
     firefox
     chromium
   ];
+
+  home.sessionVariables = {
+    TEST_VAR = "123";
+    LANG = "en_US.UTF-8";
+    LC_CTYPE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    EDITOR = "nvim";
+  };
+
+  # There is a bug in Nix that .profile is not sourced when opening new shell
+  # because of this, home.sessionVariables will not work correctly, until that bug is fixed
+  # https://github.com/nix-community/home-manager/issues/1011
+  home.file.".xprofile".text = ''
+      . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
+  '';
+
+  programs.fish = {
+    enable = true;
+
+    plugins = [
+      {
+        name = "theme-btf";
+        src = pkgs.fetchFromGitHub {
+          owner = "oh-my-fish";
+          repo = "oh-my-fish";
+          rev = "252566fd";
+          sha256 = "sha256-mpV+WwJIZu7VdICLZxk0T2ZLITjGCiVHUD5N6sbKqFU=";
+        };
+      }
+    ];
+
+  };
+
+  # in this case it will source sessionVariables defined above correctly
+  programs.bash = {
+    enable = true;
+  };
 
   programs.git = {
 	enable = true;

@@ -46,6 +46,9 @@
 	displayManager = {
 		defaultSession = "none+i3";
 		lightdm.enable = true;
+        sessionCommands = ''
+          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
 	};
 
 	windowManager.i3 = {
@@ -98,7 +101,7 @@
   environment.systemPackages = with pkgs; [
     gnumake
     killall
-    rxvt_unicode
+    rxvt-unicode-unwrapped
     xclip
     gtkmm3
 
@@ -135,6 +138,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = "experimental-features = nix-command flakes";
 

@@ -1,0 +1,83 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1656169755,
+        "narHash": "sha256-Nlnm4jeQWEGjYrE6hxi/7HYHjBSZ/E0RtjCYifnNsWk=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "4a3d01fb53f52ac83194081272795aa4612c2381",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-22.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1664438633,
+        "narHash": "sha256-qEotLz24HnHhgmba4drLHIxXG+IKQ7uve5GjUhjWhTU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "13cbe534ebe63a0bc2619c57661a2150569d0443",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "release-22.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "oh-my-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664400711,
+        "narHash": "sha256-mpV+WwJIZu7VdICLZxk0T2ZLITjGCiVHUD5N6sbKqFU=",
+        "owner": "oh-my-fish",
+        "repo": "oh-my-fish",
+        "rev": "252566fd6813db8865cae0fc04f99df5119c4d98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "oh-my-fish",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "oh-my-fish": "oh-my-fish",
+        "theme-bobthefish": "theme-bobthefish"
+      }
+    },
+    "theme-bobthefish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659411664,
+        "narHash": "sha256-jBbm0wTNZ7jSoGFxRkTz96QHpc5ViAw9RGsRBkCQEIU=",
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "rev": "2dcfcab653ae69ae95ab57217fe64c97ae05d8de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

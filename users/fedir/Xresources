@@ -1,7 +1,16 @@
 ! URXVT FONT SETTINGS
 !------------------------------------------------
-Xft.dpi: 180
+
+! Works best for VM
+Xft.dpi: 130
+
+! For HP hi-res monitor
+! Xft.dpi: 180
+
+! For MacBooks retina hi-res mode
+! by default, I disable hi-res, so default settings can be used on both Dell and MacBook Pro
 ! Xft.dpi: 220
+
 Xft.autohint: true
 Xft.antialias: true
 Xft.hinting: true
