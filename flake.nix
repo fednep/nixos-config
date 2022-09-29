@@ -25,13 +25,15 @@
   };
 
   outputs = { self, nixpkgs, oh-my-fish, theme-bobthefish, home-manager }:
+
     let overlays = [
       (final: prev: {
         fishPlugins.omf = oh-my-fish;
         fishPlugins.theme-bobthefish = theme-bobthefish;
       })
     ]; in {
-    nixosConfigurations.mac-vm = nixpkgs.lib.nixosSystem {
+
+    nixosConfigurations.intel-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           { nixpkgs.overlays = overlays; }

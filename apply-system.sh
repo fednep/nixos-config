@@ -12,6 +12,7 @@ pushd /nixos-config
 # Escape whatever will be in the hosts file, just in case
 
 HOST=$(printf '%q' `cat host`)
-sudo nixos-rebuild switch -I nixos-config=./system/$HOST.nix
+nixos-rebuild --use-remote-sudo switch --flake .#$HOST
+# sudo nixos-rebuild switch -I nixos-config=./system/$HOST.nix
 
 popd
