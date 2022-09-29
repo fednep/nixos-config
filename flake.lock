@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fish-foreign-env": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1649621402,
+        "narHash": "sha256-3h03WQrBZmTXZLkQh1oVyhv6zlyYsSDS7HTHr+7WjY8=",
+        "owner": "oh-my-fish",
+        "repo": "plugin-foreign-env",
+        "rev": "b3dd471bcc885b597c3922e4de836e06415e52dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "plugin-foreign-env",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -37,27 +53,11 @@
         "type": "github"
       }
     },
-    "oh-my-fish": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1664400711,
-        "narHash": "sha256-mpV+WwJIZu7VdICLZxk0T2ZLITjGCiVHUD5N6sbKqFU=",
-        "owner": "oh-my-fish",
-        "repo": "oh-my-fish",
-        "rev": "252566fd6813db8865cae0fc04f99df5119c4d98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oh-my-fish",
-        "repo": "oh-my-fish",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
+        "fish-foreign-env": "fish-foreign-env",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "oh-my-fish": "oh-my-fish",
         "theme-bobthefish": "theme-bobthefish"
       }
     },

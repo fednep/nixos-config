@@ -46,13 +46,13 @@
 
     plugins = [
       {
-        name = "theme-btf";
-        src = pkgs.fetchFromGitHub {
-          owner = "oh-my-fish";
-          repo = "oh-my-fish";
-          rev = "252566fd";
-          sha256 = "sha256-mpV+WwJIZu7VdICLZxk0T2ZLITjGCiVHUD5N6sbKqFU=";
-        };
+        name="foreign-env";
+        src = pkgs.fishPlugins.foreign-env;
+      }
+
+      {
+        name="theme-bobthefish";
+        src = pkgs.fishPlugins.theme-bobthefish;
       }
     ];
 
@@ -101,7 +101,7 @@
   };
 
   # Make sursor not tiny on HiDPI screens
-  xsession.pointerCursor = {
+  home.pointerCursor = {
     name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
     size = 128;
