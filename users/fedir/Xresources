@@ -56,7 +56,11 @@ Xft.lcdfilter: lcddefault
 URxvt.colorBD: #B5BD68
 URxvt.colorIT: #B294BB
 URxvt.colorUL: #81A2BE
-URxvt*font: xft:Go Mono for Powerline:size=10
+! URxvt*font: xft:Go Mono for Powerline:size=10
+! URxvt*font: xft:Ubuntu Mono derivative Powerline:size=12
+! URxvt*font: xft:monofur for Powerline:size=12
+! URxvt*font: xft:Droid Sans Mono for Powerline:size=10
+URxvt*font: xft:DejaVu Sans Mono for Powerline:size=10
 URxvt.scrollBar: false
 
 ! Disable Ctrl + shift
