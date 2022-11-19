@@ -2,7 +2,7 @@
 !------------------------------------------------
 
 ! Works best for VM
-Xft.dpi: 130
+Xft.dpi: 110
 
 ! For HP hi-res monitor
 ! Xft.dpi: 180
