@@ -110,11 +110,11 @@
   };
 
   # Make sursor not tiny on HiDPI screens
-  home.pointerCursor = {
-    name = "Vanilla-DMZ";
-    package = pkgs.vanilla-dmz;
-    size = 128;
-  };
+#   home.pointerCursor = {
+#     name = "Vanilla-DMZ";
+#     package = pkgs.vanilla-dmz;
+#     size = 128;
+#   };
 
   xresources.extraConfig = builtins.readFile ./Xresources;
 
