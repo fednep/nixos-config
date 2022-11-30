@@ -138,7 +138,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = lib.mkDefault false;
 
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = "experimental-features = nix-command flakes";

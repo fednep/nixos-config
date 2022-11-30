@@ -2,10 +2,10 @@
   description = "A very basic flake";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
 
     # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     theme-bobthefish = {
       url = "github:oh-my-fish/theme-bobthefish";
@@ -30,7 +30,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, theme-bobthefish, fish-foreign-env, home-manager }:
+  outputs = { self, nixpkgs, theme-bobthefish, fish-foreign-env, nixos-hardware, home-manager }:
 
     let overlays = [
       (final: prev: {
@@ -57,6 +57,8 @@
         modules = [
           { nixpkgs.overlays = overlays; }
           ./system/thinkpad-e14.nix
+
+          nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
