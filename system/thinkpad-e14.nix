@@ -8,6 +8,13 @@
   networking.hostName = "nixos-thinkpad"; # Define your hostname.
 
   services.xserver.dpi = 125;
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      Xft.dpi: 125
+      URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
+    EOF
+  '';
+
   services.illum.enable = true; # Enable backlit control
 
   # Set location provider for redshift
