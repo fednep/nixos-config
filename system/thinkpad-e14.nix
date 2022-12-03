@@ -15,6 +15,15 @@
     EOF
   '';
 
+  services.xserver = {
+    layout = "us,ua";
+    xkbOptions = "grp:lctrl_lshift_toggle";
+  };
+
+  environment.systemPackages = with pkgs; [
+    libreoffice
+  ];
+
   services.illum.enable = true; # Enable backlit control
 
   # Set location provider for redshift

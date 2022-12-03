@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./xresources.nix
+  ];
+
   xdg.enable = true;
 
   home.packages = with pkgs; [
@@ -27,7 +31,6 @@
   ];
 
   home.sessionVariables = {
-    TEST_VAR = "123";
     LANG = "en_US.UTF-8";
     LC_CTYPE = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
@@ -114,9 +117,6 @@
     package = pkgs.vanilla-dmz;
     size = 128;
   };
-
-  xresources.extraConfig = builtins.readFile ./Xresources;
-
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

@@ -17,11 +17,6 @@
       flake = false;
     };
 
-    # oh-my-fish = {
-      # url = "github:oh-my-fish/oh-my-fish";
-      # flake = false;
-    # };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
 
@@ -63,7 +58,12 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.fedir = import ./users/fedir/home.nix;
+            home-manager.users.fedir = {...}: {
+              imports = [
+                ./users/fedir/home.nix
+                ./system/thinkpad-e14-home.nix
+              ];
+            };
           }
         ];
     };
