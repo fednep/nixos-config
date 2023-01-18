@@ -25,6 +25,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    eksctl
     kubectl
     libreoffice
   ];
