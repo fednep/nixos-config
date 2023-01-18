@@ -20,7 +20,12 @@
     xkbOptions = "grp:lctrl_lshift_toggle";
   };
 
+  services.postgresql = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
+    kubectl
     libreoffice
   ];
 
