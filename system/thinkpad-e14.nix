@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+
   imports = [
     ./thinkpad-e14-hardware.nix
     ./templates/dev.nix
@@ -73,6 +74,7 @@
 
     };
   };
+
   services.udev.extraRules = ''
       ACTION=="change", \
       SUBSYSTEM=="drm", \
