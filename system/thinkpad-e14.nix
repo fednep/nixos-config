@@ -6,15 +6,13 @@
     ./templates/dev.nix
   ];
 
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=0
+  '';
+
   networking.hostName = "nixos-thinkpad"; # Define your hostname.
 
   services.xserver.dpi = 125;
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      Xft.dpi: 125
-      URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
-    EOF
-  '';
 
   services.xserver = {
     layout = "us,ua";
@@ -35,7 +33,8 @@
     libreoffice
   ];
 
-  services.illum.enable = true; # Enable backlit control
+  # Enable backlit control
+  services.illum.enable = true;
 
   services.autorandr = {
     enable = true;
@@ -73,8 +72,31 @@
       };
 
     };
+
+    hooks = {
+      postswitch = {
+        "change-dpi" = ''
+            case "$AUTORANDR_CURRENT_PROFILE" in
+                  default)
+                    DPI=125
+                    ;;
+                  int-only)
+                    DPI=125
+                    ;;
+                  ext-dell)
+                    DPI=110
+                    ;;
+                  *)
+                    echo "Unknown profle: $AUTORANDR_CURRENT_PROFILE"
+                    exit 1
+                esac
+                echo "Xft.dpi: $DPI" | ${pkgs.xorg.xrdb}/bin/xrdb -merge
+          '';
+      };
+    };
   };
 
+  # Make autorandr automatically chose profile when monitor change
   services.udev.extraRules = ''
       ACTION=="change", \
       SUBSYSTEM=="drm", \
