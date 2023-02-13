@@ -14,11 +14,6 @@
 
   services.xserver.dpi = 125;
 
-  services.xserver = {
-    layout = "us,ua";
-    xkbOptions = "grp:lctrl_lshift_toggle";
-  };
-
   services.postgresql = {
     enable = true;
   };
