@@ -1,9 +1,8 @@
 { pkgs, ... }:
 {
-
   imports = [
     ./thinkpad-e14-hardware.nix
-    ./templates/dev-gfx.nix
+    ./roles/dev-x.nix
   ];
 
   boot.extraModprobeConfig = ''

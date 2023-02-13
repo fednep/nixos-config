@@ -2,7 +2,7 @@
 {
   imports = [
     ./dev-srv-hardware.nix
-    ./templates/dev.nix
+    ./roles/dev-x.nix
   ];
 
   # set fn keys to work on the keyboard in Mac mode

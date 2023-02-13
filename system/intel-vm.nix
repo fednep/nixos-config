@@ -2,7 +2,7 @@
 {
   imports = [
     ./intel-vm-hardware.nix
-    ./templates/dev.nix
+    ./roles/dev-x.nix
   ];
 
   virtualisation.vmware.guest.enable = true;
