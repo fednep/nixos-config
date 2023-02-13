@@ -3,7 +3,7 @@
 
   imports = [
     ./thinkpad-e14-hardware.nix
-    ./templates/dev.nix
+    ./templates/dev-gfx.nix
   ];
 
   boot.extraModprobeConfig = ''
@@ -24,12 +24,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    jq
-    tmux
-    kubectl
-    eksctl
-    awscli2
-    kubernetes-helm
     libreoffice
   ];
 

@@ -5,6 +5,7 @@
     ./templates/dev.nix
   ];
 
+  virtualisation.vmware.guest.enable = true;
   services.xserver.dpi = 110;
   networking.hostName = "nixos"; # Define your hostname.
 

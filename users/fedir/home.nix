@@ -11,6 +11,7 @@
     tree
 	git
 	git-crypt
+
 	gnupg
 	pinentry_qt
 
@@ -20,14 +21,10 @@
 	gopls
 	watch
 
-    alacritty
-	rofi
     silver-searcher # Ag tool for vim plugin
 
     neovim
     zsh
-    firefox
-    chromium
   ];
 
   home.sessionVariables = {
