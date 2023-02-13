@@ -56,7 +56,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.openssh.passwordAuthentication = true;
+  services.openssh.passwordAuthentication = lib.mkDefault true;
   services.openssh.permitRootLogin = "no";
 
   # Open ports in the firewall.
