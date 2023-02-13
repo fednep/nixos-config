@@ -1,9 +1,8 @@
 { pkgs, ... }:
 {
-
   imports = [
     ./thinkpad-e14-hardware.nix
-    ./templates/dev.nix
+    ./roles/dev-x.nix
   ];
 
   boot.extraModprobeConfig = ''
@@ -14,22 +13,11 @@
 
   services.xserver.dpi = 125;
 
-  services.xserver = {
-    layout = "us,ua";
-    xkbOptions = "grp:lctrl_lshift_toggle";
-  };
-
   services.postgresql = {
     enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-    jq
-    tmux
-    kubectl
-    eksctl
-    awscli2
-    kubernetes-helm
     libreoffice
   ];
 

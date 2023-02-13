@@ -34,6 +34,7 @@
       })
     ]; in {
 
+
     nixosConfigurations.intel-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -42,7 +43,20 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.fedir = import ./users/fedir/home.nix;
+            home-manager.users.fedir = import ./users/fedir/home-x.nix;
+          }
+        ];
+    };
+
+    nixosConfigurations.kvm-vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          { nixpkgs.overlays = overlays; }
+          ./system/kvm-vm.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.fedir = import ./users/fedir/home-cli.nix;
           }
         ];
     };
@@ -60,7 +74,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.fedir = {...}: {
               imports = [
-                ./users/fedir/home.nix
+                ./users/fedir/home-x.nix
                 ./system/thinkpad-e14-home.nix
               ];
             };
