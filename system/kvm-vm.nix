@@ -9,6 +9,10 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
+  environment.systemPackages = with pkgs; [
+    customNixops
+  ];
+
   services.openssh.passwordAuthentication = false;
 
   networking.hostName = "kvm-vm"; # Define your hostname.

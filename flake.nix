@@ -3,9 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixops = {
+      url = "github:NixOS/nixops";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     theme-bobthefish = {
       url = "github:oh-my-fish/theme-bobthefish";
@@ -25,16 +30,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, theme-bobthefish, fish-foreign-env, nixos-hardware, home-manager }:
+  outputs = { self, nixpkgs, theme-bobthefish, fish-foreign-env, nixos-hardware, home-manager, ...}@inputs:
+
 
     let overlays = [
       (final: prev: {
         fishPlugins.theme-bobthefish = theme-bobthefish;
         fishPlugins.foreign-env = fish-foreign-env;
+        customNixops = inputs.nixops.packages.${prev.system}.default;
       })
     ]; in {
-
-
     nixosConfigurations.intel-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
